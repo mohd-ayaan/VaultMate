@@ -1,77 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Upload Form</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #cfbeb4;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Not Found</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #3498db; /* Blue background color */
+            color: #fff; /* White text color */
+        }
 
-    .container {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
+        h2 {
+            font-size: 36px; /* Larger font size */
+            margin-bottom: 20px;
+        }
 
-    h1 {
-      color: #333;
-    }
+        #message {
+            font-size: 24px; /* Medium font size */
+            margin-bottom: 20px;
+        }
 
-    .file-input {
-      margin: 20px 0;
-    }
+        #redirectMessage {
+            font-size: 20px; /* Medium font size for the redirect message */
+            margin-bottom: 20px;
+        }
 
-    label {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 8px;
-      display: block;
-    }
+        p {
+            font-size: 18px; /* Smaller font size for regular text */
+        }
 
-    input[type="file"] {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+        a {
+            color: #fff; /* White text color */
+            text-decoration: none;
+        }
 
-    button {
-      padding: 12px 24px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Image Upload Form</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-      <div class="file-input">
-        <label for="image">Choose an image:</label></br>
-        <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .pdf" required>
-      </div>
-      <button type="submit">Upload</button>
-    </form>
-  </div>
+    
+    <p id="message">Image Sucessfully  Uploaded.</p>
+
+    <p id="redirectMessage">Redirecting in <span id="countdown">5</span> seconds...</p>
+
+    <script>
+        // Function to update countdown and redirect
+        function redirectWithCountdown() {
+            var countdownElement = document.getElementById('countdown');
+            var countdownValue = parseInt(countdownElement.innerText);
+
+            if (countdownValue > 1) {
+                countdownElement.innerText = countdownValue - 1;
+                setTimeout(redirectWithCountdown, 1000);
+            } else {
+                window.location.href = "/main";
+            }
+        }
+
+        // Set initial timeout for redirection
+        setTimeout(redirectWithCountdown, 1000);
+    </script>
+
+    <p>If you are not redirected, you can go back to the <a href="/main">Home page</a> manually.</p>
 </body>
 </html>

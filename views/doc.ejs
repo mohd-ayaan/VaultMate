@@ -10,12 +10,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <a class="logo" href="#">
-                <img class="logo-image" src="2.png" alt="Vault Mate Logo">
-                <span class="site-title">VAULT MATE</span>
-            </a>
-        </div>
+        <%- include("header.ejs") %>
     </header>
     <h1><%= filename %></h1>
     <div class="box-container">
@@ -23,7 +18,7 @@
             <img src="4.jpg" alt="Square Image">
         </div>
         <div class="button-row">
-            <form action='/upload/<%=filename%>'' method="post" enctype="multipart/form-data">
+            <form action='/upload/<%=filename%>' method="post" enctype="multipart/form-data">
                 <div class="file-input">
                   <label for="image">Choose an image:</label></br>
                   <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .pdf" required>
@@ -35,7 +30,7 @@
     </div>
     <br>
     <footer class="footer">
-        <h3 align = "left">&nbsp;&copy; 2023 Vault Mate. All rights reserved.</h3>
+        <%- include("footer.ejs") %>
     </footer>
 </body>
 </html>

@@ -7,13 +7,13 @@
 
 .product-box {
     background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(3, 83, 12, 0.849);
+    box-shadow: 0px 2px 2px 3px #A87676 ;
     height: 250px;
     width: 300px;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    margin: 10px; /* Add margin to create spacing */
+    margin: 10px;
     transition: transform 0.2s ease-in-out, transition-delay 0.1s;
 }
 .product-box :hover
@@ -59,9 +59,9 @@
     margin: 8px 0;
 }
 .footer {
-    background-color: #000000;
+    background-color: #585353;
     color: #fff;
-    padding: 20px 0;
+    padding: 8px 0;
     text-align: center;
 }
 

@@ -12,6 +12,10 @@ import multer from "multer";
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+const mongoURI = process.env.MONGO_URI;
+console.log(mongoURI);  // Ensure this outputs the correct connection string
+
+
 dotenv.config();
 const port =3000;
 const app=express();
@@ -34,9 +38,12 @@ app.get("/contact",(req,res)=>{
 });
 
 app.get("/main",(req,res)=>{
-    res.render("start.ejs");
+    res.render("main.ejs");
 });
 
+app.get("/signin",(req,res)=>{
+    res.render("start.ejs");
+});
 app.get("/signup",(req,res)=>{
     res.render("signup.ejs");
 });
@@ -63,7 +70,7 @@ app.post("/signup",(req,res)=>{
   
 
 app.post("/signin",(req,res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     User.findOne({_id:req.body.mobile})
     .then(detail=>{
         console.log(detail);
@@ -155,7 +162,7 @@ app.get("/preview",(req,res)=>{
 app.post('/upload/:filemode',upload.single('image'),verifyToken,(req,res)=>{
     save_image_file_service(req.file,req.user.user,req.params.filemode)
     .then(()=>{
-        res.redirect('/user');
+        res.redirect('/upload');
     })
     .catch(()=>{
     })
@@ -211,3 +218,4 @@ app.listen(port, "0.0.0.0", () => {
     console.log(`Server is running on port ${port}`);
     console.log(`Server is also accessible at http://${localAddress}:${port}`);
 });
+

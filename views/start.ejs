@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="../public/" -->
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>VAULT MATE</title>
 </head>
 <body>
+    
     <header class="header">
         <div class="container">
             <a class="logo" href="#">
@@ -18,9 +20,7 @@
             </a>
             <nav class="menu">
                 <ul>
-                    <li><a href="/main">HOME</a></li>
                     <li><a href="/about">ABOUT</a></li>
-                    <li><a href="/main">IMPORTANT LINKS</a></li>
                     <li><a href="/contact">CONTACT</a></li>
                 </ul>
             </nav>
@@ -43,10 +43,10 @@
                     <input type="password" class="form-input" name="password" placeholder="password" required>
                     <br>
                     <div class="button-container">
-                        <!-- <a class="form-button">Reset</a> -->
-                        <button type="reset">Reset</button>
-                        <button type="submit" class="form-button">SignIn</button>
-                        <!-- <a href="/signin" class="form-button">Sign In</a> -->
+                   
+                        <button type="reset" class="form-button">Reset</button>
+                        <button type="submit" class="form-button">Sign In</button>
+                        
                     </div>
                 </form>                
             </div>
@@ -65,7 +65,7 @@
     </div>
     <br>
     <footer class="footer">
-        <h3 align = "left">&nbsp;&copy; 2023 Vault Mate. All rights reserved.</h3>
+        <%- include("footer.ejs") %>
     </footer>
     <script src="signin.js"></script>
 </body>
